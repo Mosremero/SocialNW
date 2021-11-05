@@ -1,11 +1,11 @@
-﻿using SocialNetwork.BLL.Models;
-using SocialNetwork.BLL.Services;
+﻿using SocialNW.BLL.Models;
+using SocialNW.BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SocialNetwork.PLL.Views
+namespace SocialNW.PLL.Views
 {
     public class UserMenuView
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.PLL.Helpers
+namespace SocialNW.PLL.Helpers
 {
     public class AlertMessage
     {

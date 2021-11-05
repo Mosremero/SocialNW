@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.DAL.Entities
+namespace SocialNW.DAL.Entities
 {
     public class UserEntity
     {

@@ -1,11 +1,11 @@
-﻿using SocialNetwork.BLL.Models;
-using SocialNetwork.BLL.Services;
-using SocialNetwork.PLL.Helpers;
+﻿using SocialNW.BLL.Models;
+using SocialNW.BLL.Services;
+using SocialNW.PLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.PLL.Views
+namespace SocialNW.PLL.Views
 {
     public class UserDataUpdateView
     {

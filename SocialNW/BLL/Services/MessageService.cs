@@ -1,13 +1,13 @@
-﻿using SocialNetwork.BLL.Exceptions;
-using SocialNetwork.BLL.Models;
-using SocialNetwork.DAL.Entities;
-using SocialNetwork.DAL.Repositories;
+﻿using SocialNW.BLL.Exceptions;
+using SocialNW.BLL.Models;
+using SocialNW.DAL.Entities;
+using SocialNW.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SocialNetwork.BLL.Services
+namespace SocialNW.BLL.Services
 {
     public class MessageService
     {

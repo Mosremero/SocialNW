@@ -1,31 +1,47 @@
-﻿using SocialNetwork.BLL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.PLL.Views
+using SocialNetwork.BLL.Exceptions;
+using SocialNetwork.BLL.Models;
+using SocialNetwork.BLL.Services;
+using SocialNetwork.PLL.Helpers;
+
+namespace SocialNW.PLL.Views
 {
-    public class MainView
+    public class AddFriendView
     {
-        public void Show()
+        UserService userService;
+
+        public AddFriendView(UserService userService)
         {
-            Console.WriteLine("Войти в профиль (нажмите 1)");
-            Console.WriteLine("Зарегистрироваться (нажмите 2)");
+            this.userService = userService;
+        }
 
-            switch (Console.ReadLine())
+        public void Show(User user)
+        {
+            try
             {
-                case "1":
-                    {
-                        Program.authenticationView.Show();
-                        break;
-                    }
+                var userAddFriendData = new UserFriendAddingData();
+                Console.WriteLine("Введите email пользователя для добавления в друзья: ");
 
-                case "2":
-                    {
-                        Program.registrationView.Show();
-                        break;
-                    }
+                userAddFriendData.FriendEmail = Console.ReadLine();
+                userAddFriendData.UserId = user.Id;
+
+                this.userService.AddFriend(userAddFriendData);
+                SuccessMessage.Show("Пользователь успешно добавлен в друзья.");
             }
+
+            catch(UserNotFoundException)
+            {
+                AlertMessage.Show("Пользователь с указанным email не существует.");
+            }
+            
+            catch(Exception)
+            {
+                AlertMessage.Show("Ошибка при добавлении пользователя в друзья.");
+            }
+ 
         }
     }
 }

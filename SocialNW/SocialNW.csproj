@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BLL\" />
     <Folder Include="DAL\" />
     <Folder Include="PLL\" />
+    <Folder Include="BLL\" />
   </ItemGroup>
 
   <ItemGroup>

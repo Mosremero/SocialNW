@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.BLL.Models
+namespace SocialNW.BLL.Models
 {
     public class Message
     {

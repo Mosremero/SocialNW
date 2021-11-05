@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocialNetwork.BLL.Exceptions
+namespace SocialNW.BLL.Exceptions
 {
     public class UserNotFoundException : Exception
     {

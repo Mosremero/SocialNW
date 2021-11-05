@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SocialNetwork.BLL.Models
+namespace SocialNW.BLL.Models
 {
     public class User
     {
@@ -40,5 +40,7 @@ namespace SocialNetwork.BLL.Models
             this.IncomingMessages = incomingMessages;
             this.OutgoingMessages = outgoingMessages;
         }
+
+        public IEnumerable<User> Friends { get;}
     }
 }

@@ -1,9 +1,9 @@
-﻿using SocialNetwork.BLL.Models;
+﻿using SocialNW.BLL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialNetwork.PLL.Views
+namespace SocialNW.PLL.Views
 {
     public class UserInfoView
     {

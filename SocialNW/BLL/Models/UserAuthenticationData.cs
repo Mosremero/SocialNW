@@ -1,5 +1,5 @@
 ﻿
-namespace SocialNetwork.BLL.Models
+namespace SocialNW.BLL.Models
 {
     public class UserAuthenticationData
     {

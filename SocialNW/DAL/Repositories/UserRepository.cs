@@ -1,7 +1,7 @@
 ﻿using SocialNetwork.DAL.Entities;
 using System.Collections.Generic;
 
-namespace SocialNetwork.DAL.Repositories
+namespace SocialNW.DAL.Repositories
 {
     public class UserRepository : BaseRepository, IUserRepository
     {

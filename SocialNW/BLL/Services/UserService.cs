@@ -1,22 +1,24 @@
-﻿using SocialNetwork.BLL.Exceptions;
-using SocialNetwork.BLL.Models;
-using SocialNetwork.DAL.Entities;
-using SocialNetwork.DAL.Repositories;
+﻿using SocialNW.BLL.Exceptions;
+using SocialNW.BLL.Models;
+using SocialNW.DAL.Entities;
+using SocialNW.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace SocialNetwork.BLL.Services
+namespace SocialNW.BLL.Services
 {
     public class UserService
     {
         MessageService messageService;
         IUserRepository userRepository;
+        IFriendRepository friendRepository;
         public UserService()
         {
             userRepository = new UserRepository();
             messageService = new MessageService();
+            friendRepository = new FriendRepository();
         }
 
         public void Register(UserRegistrationData userRegistrationData)
@@ -106,6 +108,8 @@ namespace SocialNetwork.BLL.Services
 
             var outgoingMessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
 
+            var friends = GetFriendByUserId(userEntity.id);
+
             return new User(userEntity.id,
                           userEntity.firstname,
                           userEntity.lastname,
@@ -118,5 +122,28 @@ namespace SocialNetwork.BLL.Services
                           outgoingMessages
                           );
         }
+
+        public void AddFriend(UserFriendAddingData userFriendAddingData)
+        {
+            var findUserEntity = userRepository.FindByEmail(userFriendAddingData.FriendEmail);
+            if (findUserEntity is null) throw new UserNotFoundException();
+
+            var friendEntity = new FriendEntity()
+            {
+                friend_id = findUserEntity.id;
+                user_id = userFriendAddingData.UserId;
+            };
+
+            if (this.friendRepository.Create(friendEntity) == 0)
+                throw new Exception();
+
+        }
+
+        public IEnumerable<User> GetFriendByUserId(int userId)
+        {   
+            return friendRepository.FindAllByUserId(userId).select(friendEntityFind => FindById(friendEntityFind.friend_id);
+
+        }
+
     }
 }
